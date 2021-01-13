@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Base.gd" type="Script" id=1]
+
+[node name="Base" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Chat" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="RichTextLabel" parent="Chat"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 512.0
+
+[node name="HostIpLabel" type="Label" parent="Chat"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -256.0
+margin_top = 96.0
+margin_bottom = 128.0
+text = "Server IP - "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Chat"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = -56.0
+margin_right = -32.0
+margin_bottom = -24.0
+
+[node name="ExitButton" type="Button" parent="Chat"]
+margin_left = 928.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 64.0
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Login" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UsernameLabel" type="Label" parent="Login"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 128.0
+margin_bottom = 64.0
+text = "Username"
+
+[node name="IpLabel" type="Label" parent="Login"]
+margin_left = 32.0
+margin_top = 96.0
+margin_right = 128.0
+margin_bottom = 128.0
+text = "Host IP (Needed for clients)"
+
+[node name="MyIp" type="Label" parent="Login"]
+margin_left = 32.0
+margin_top = 224.0
+margin_right = 320.0
+margin_bottom = 256.0
+text = "My IP - "
+autowrap = true
+
+[node name="UsernameLineEdit" type="LineEdit" parent="Login"]
+margin_left = 320.0
+margin_top = 32.0
+margin_right = 544.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IpLineEdit" type="LineEdit" parent="Login"]
+margin_left = 320.0
+margin_top = 96.0
+margin_right = 544.0
+margin_bottom = 128.0
+
+[node name="HostButton" type="Button" parent="Login"]
+margin_left = 32.0
+margin_top = 160.0
+margin_right = 160.0
+margin_bottom = 192.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="Login"]
+margin_left = 192.0
+margin_top = 160.0
+margin_right = 320.0
+margin_bottom = 192.0
+text = "Join"
+[connection signal="pressed" from="Chat/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="text_changed" from="Login/UsernameLineEdit" to="." method="_on_UsernameLineEdit_text_changed"]
+[connection signal="text_changed" from="Login/IpLineEdit" to="." method="_on_IpLineEdit_text_changed"]
+[connection signal="pressed" from="Login/HostButton" to="." method="_on_HostButton_pressed"]
+[connection signal="pressed" from="Login/JoinButton" to="." method="_on_JoinButton_pressed"]
